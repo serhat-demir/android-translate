@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Çeviri</string>
+    <string name="enter_text">Metin Girin</string>
+    <string name="translate">Çevir</string>
+    <string name="source_language">Şu Dilden Çevir:</string>
+    <string name="target_language">Şu Dile Çevir:</string>
+    <string name="google_translate_api">Google Translate API</string>
+    <string name="copy_to_clipboard">Metni Kopyala</string>
+    <string name="copied_to_clipboard">Metin kopyalandı</string>
+    <string name="the_text_cannot_be_empty">Çevirilecek metin boş olamaz.</string>
+    <string name="translated">Çeviri</string>
+</resources>
