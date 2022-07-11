@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (!status) {
             loadLanguagesToLocalDb();
             spEdit.putBoolean("status", true);
+            spEdit.commit();
         }
     }
 
