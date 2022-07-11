@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         //toolbar
         binding.toolbar.setTitle(getString(R.string.app_name));
-        binding.toolbar.setTitle(getString(R.string.google_translate_api));
+        binding.toolbar.setSubtitle(getString(R.string.google_translate_api));
         setSupportActionBar(binding.toolbar);
 
         //spinners
