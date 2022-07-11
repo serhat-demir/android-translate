@@ -2,6 +2,8 @@ package com.serhat.translate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -70,6 +72,15 @@ public class MainActivity extends AppCompatActivity {
         //translate
         binding.btnTranslate.setOnClickListener(view -> {
 
+        });
+
+        //copy to clipboard
+        binding.txtCopyToClipboard.setOnClickListener(view -> {
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("", binding.edtTarget.getText().toString());
+            clipboard.setPrimaryClip(clip);
+
+            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show();
         });
     }
 
