@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Translate</string>
+    <string name="enter_text">Enter Text</string>
+    <string name="translate">Translate</string>
+    <string name="source_language">Source Language</string>
+    <string name="target_language">Target Language</string>
 </resources>
