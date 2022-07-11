@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.serhat.translate.api.ApiClient;
 import com.serhat.translate.api.ApiInterface;
 import com.serhat.translate.database.DatabaseHelper;
@@ -18,6 +19,7 @@ import com.serhat.translate.database.LanguageDao;
 import com.serhat.translate.databinding.ActivityMainBinding;
 import com.serhat.translate.model.Language;
 import com.serhat.translate.model.LanguagesResponse;
+import com.serhat.translate.model.TranslateResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +73,33 @@ public class MainActivity extends AppCompatActivity {
 
         //translate
         binding.btnTranslate.setOnClickListener(view -> {
+            String query = binding.edtSource.getText().toString().trim();
+            String sourceLang = binding.spSourceLang.getSelectedItem().toString();
+            String targetLang = binding.spTargetLang.getSelectedItem().toString();
+
+            if (query.isEmpty()) {
+                Snackbar.make(view, getString(R.string.the_text_cannot_be_empty), Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+
+            service.translate(ApiClient.X_RapidAPI_Key, ApiClient.X_RapidAPI_HOST, query, targetLang, sourceLang).enqueue(new Callback<TranslateResponse>() {
+                @Override
+                public void onResponse(Call<TranslateResponse> call, Response<TranslateResponse> response) {
+                    if (response.body() != null) {
+                        String translatedText = response.body().getData().getTranslations().get(0).getTranslatedText();
+                        binding.edtTarget.setText(translatedText);
+
+                        Log.e("", "Translated");
+                    } else {
+                        Log.e("", "Response is empty");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<TranslateResponse> call, Throwable t) {
+                    Log.e("Error", t.getMessage());
+                }
+            });
 
         });
 

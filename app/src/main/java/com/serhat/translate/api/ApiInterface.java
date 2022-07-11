@@ -11,14 +11,10 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
-    @GET("languages")
+    @GET("v2/languages")
     Call<LanguagesResponse> getLanguages(@Header("X-RapidAPI-Key") String api_key, @Header("X-RapidAPI-Host") String api_host);
 
-    @POST
+    @POST("v2")
     @FormUrlEncoded
-    Call<TranslateResponse> translate(@Header("X-RapidAPI-Key") String api_key, @Header("X-RapidAPI-Host") String api_host, @Field("q") String query, @Field("target") String target);
-
-    @POST
-    @FormUrlEncoded
-    Call<TranslateResponse> translateAndDetectSource(@Header("X-RapidAPI-Key") String api_key, @Header("X-RapidAPI-Host") String api_host, @Field("q") String query, @Field("target") String target, @Field("source") String source);
+    Call<TranslateResponse> translate(@Header("X-RapidAPI-Key") String api_key, @Header("X-RapidAPI-Host") String api_host, @Field("q") String query, @Field("target") String target, @Field("source") String source);
 }

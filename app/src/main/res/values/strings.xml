@@ -7,4 +7,5 @@
     <string name="google_translate_api">Google Translate API</string>
     <string name="copy_to_clipboard">Copy To Clipboard</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="the_text_cannot_be_empty">The text cannot be empty.</string>
 </resources>
