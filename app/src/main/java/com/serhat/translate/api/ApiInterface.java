@@ -11,8 +11,8 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
-    @GET("/languages")
-    Call<LanguagesResponse> getLanguages();
+    @GET("languages")
+    Call<LanguagesResponse> getLanguages(@Header("X-RapidAPI-Key") String api_key, @Header("X-RapidAPI-Host") String api_host);
 
     @POST
     @FormUrlEncoded
