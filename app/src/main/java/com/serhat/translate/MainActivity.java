@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.serhat.translate.api.ApiClient;
 import com.serhat.translate.api.ApiInterface;
+import com.serhat.translate.database.DatabaseHelper;
 import com.serhat.translate.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private ApiInterface service;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
