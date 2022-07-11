@@ -11,16 +11,13 @@ import java.util.ArrayList;
 
 public class LanguageDao {
     @SuppressLint("Range")
-    public static ArrayList<Language> getLanguages(DatabaseHelper databaseHelper) {
-        ArrayList<Language> languages = new ArrayList<>();
+    public static ArrayList<String> getLanguages(DatabaseHelper databaseHelper) {
+        ArrayList<String> languages = new ArrayList<>();
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
         Cursor c = db.rawQuery("select * from languages", null);
         while (c.moveToNext()) {
-            Language language = new Language();
-            language.setLanguage(c.getString(c.getColumnIndex("language")));
-
-            languages.add(language);
+            languages.add(c.getString(c.getColumnIndex("language")));
         }
         c.close();
         db.close();
